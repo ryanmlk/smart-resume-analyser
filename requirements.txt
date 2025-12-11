@@ -1,0 +1,12 @@
+spacy
+PyPDF2
+python-docx
+pymongo
+streamlit
+streamlit
+ollama
+python-dotenv
+
+python-dotenv
+
+

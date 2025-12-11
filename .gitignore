@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Environment Variables
+.env
+
+# MacOS
+.DS_Store
+
+# Streamlit
+.streamlit/ secrets.toml
+
+# Project specific
+temp_*
+/feedback_component/models/cleaned_job_data.csv
