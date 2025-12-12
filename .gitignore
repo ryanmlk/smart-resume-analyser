@@ -20,3 +20,16 @@ venv/
 # Project specific
 temp_*
 /feedback_component/models/cleaned_job_data.csv
+check_length.py
+debug_resume.py
+list_models.py
+project-requirement.md
+Resume (Ryan Moses).pdf
+Resume Analyser- Report A.pdf
+Resume Analyser-Technical Specification Document.pdf
+test_backend.py
+test_gemini.py
+test_jd.py
+test_llama.py
+test_ollama_basic.py
+.idea

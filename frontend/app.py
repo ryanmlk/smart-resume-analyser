@@ -17,7 +17,7 @@ except ImportError as e:
 
 st.set_page_config(page_title="Smart Resume Analyzer", layout="wide")
 
-st.title("Smart Resume Analyzer 🚀")
+st.title("Smart Resume Analyzer")
 st.markdown("Upload your resume and optionally paste a job description to score against.")
 
 col_upload, col_jd = st.columns(2)
@@ -73,7 +73,7 @@ if uploaded_file:
             col1, col2 = st.columns([1, 1])
             
             with col1:
-                st.subheader("📄 Parsed Profile")
+                st.subheader("Parsed Profile")
                 st.info(f"**Email:** {resume_data.get('email', 'N/A')}")
                 st.info(f"**Phone:** {resume_data.get('phone', 'N/A')}")
                 
@@ -120,7 +120,7 @@ if uploaded_file:
                     except Exception as db_e:
                         print(f"DB Error: {db_e}") 
                     
-                    st.subheader("📊 ATS Score")
+                    st.subheader("ATS Score")
                     score = score_data['total_score']
                     
                     # Color code score
@@ -134,11 +134,11 @@ if uploaded_file:
                         
                     st.progress(score)
                     
-                    st.subheader("💡 Feedback")
+                    st.subheader("Feedback")
                     for item in score_data['breakdown']:
                         st.write(f"- {item}")
                 else:
-                    st.info("👈 **Please enter a Job Description** to generate an ATS Score and feedback.")
+                    st.info("**Please enter a Job Description** to generate an ATS Score and feedback.")
         
         # Show raw text in expander
         with st.expander("View Raw Resume Text"):

@@ -34,6 +34,11 @@ Run the Streamlit frontend:
 streamlit run smart-resume-analyzer/frontend/app.py
 ```
 
+### App Screenshots
+
+![App Screenshot](./screenshots/Main_Screen.png)
+![App Screenshot](./screenshots/Resume_Breakdown.png)
+
 ## Project Structure
 
 - `backend/`: Core logic.
