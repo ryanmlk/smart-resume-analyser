@@ -8,11 +8,12 @@ backend_path = os.path.join(current_dir, '..', 'backend')
 sys.path.append(backend_path)
 
 try:
-    from parser import parse_resume, extract_skills, parse_job_description
+    from parser import parse_resume, parse_job_description
     from scorer import calculate_ats_score
     from database import db
 except ImportError as e:
-    st.error(f"Backend modules not found. Ensure you are running from the project root or backend is in python path. Error: {e}")
+    st.error(f"Backend modules not found. Ensure you are running from the \
+    project root or backend is in python path. Error: {e}")
     st.stop()
 
 st.set_page_config(page_title="Smart Resume Analyzer", layout="wide")
@@ -112,7 +113,8 @@ if uploaded_file:
                         jd_skills = set(jd_result.get("skills", []))
                     
                     # Score
-                    score_data = calculate_ats_score(resume_data, job_description_keywords=jd_skills if jd_skills else None)
+                    score_data = calculate_ats_score(resume_data, 
+                                                     job_description_keywords=jd_skills if jd_skills else None)
                     
                     # Save to DB (Fire and forget)
                     try:

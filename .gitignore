@@ -32,4 +32,5 @@ test_gemini.py
 test_jd.py
 test_llama.py
 test_ollama_basic.py
+queries
 .idea

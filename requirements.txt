@@ -5,6 +5,7 @@ pymongo
 streamlit
 streamlit
 ollama
+ruff
 python-dotenv
 
 python-dotenv

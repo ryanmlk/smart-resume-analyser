@@ -2,7 +2,7 @@ import logging
 import os
 import re
 import json
-from typing import Dict, List, Union, Set
+from typing import Dict, List, Union
 import PyPDF2
 import docx
 import spacy
@@ -103,7 +103,8 @@ def load_skills():
                         skills_list = ast.literal_eval(row[skill_col_idx])
                         for skill in skills_list:
                             SKILLS_SET.add(skill.lower().strip())
-                    except:
+                    except Exception as e:
+                        logging.error(f"Error parsing skills: {e}")
                         continue
         logging.info(f"Loaded {len(SKILLS_SET)} unique skills.")
     except Exception as e:
@@ -240,7 +241,8 @@ def call_llama(text: str) -> Dict:
 
 def flatten_experience(experience_list: List[Dict]) -> str:
     """Helper to convert structured experience to string block."""
-    if not experience_list: return ""
+    if not experience_list: 
+        return ""
     output = []
     for exp in experience_list:
         title = exp.get('job_title') or "N/A"
@@ -252,7 +254,8 @@ def flatten_experience(experience_list: List[Dict]) -> str:
 
 def flatten_education(edu_list: List[Dict]) -> str:
     """Helper to convert structured education to string block."""
-    if not edu_list: return ""
+    if not edu_list: 
+        return ""
     output = []
     for edu in edu_list:
         degree = edu.get('degree') or "Degree"
@@ -263,7 +266,8 @@ def flatten_education(edu_list: List[Dict]) -> str:
 
 def flatten_projects(proj_list: List[Dict]) -> str:
     """Helper to convert structured projects to string block."""
-    if not proj_list: return ""
+    if not proj_list: 
+        return ""
     output = []
     for proj in proj_list:
         name = proj.get('name') or "Project"
@@ -274,7 +278,8 @@ def flatten_projects(proj_list: List[Dict]) -> str:
 
 def clean_email(email_str: str) -> str:
     """Cleans email string removing spaces and artifacts."""
-    if not email_str: return None
+    if not email_str: 
+        return None
     # Remove all spaces
     clean = email_str.replace(" ", "")
     # Find email pattern in the cleaned string (in case of "email|email")

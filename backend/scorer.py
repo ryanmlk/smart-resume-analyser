@@ -1,5 +1,4 @@
-import logging
-from typing import Dict, List, Set
+from typing import Dict, Set
 
 def calculate_ats_score(resume_data: Dict, job_description_keywords: Set[str] = None) -> Dict:
     """
@@ -39,7 +38,8 @@ def calculate_ats_score(resume_data: Dict, job_description_keywords: Set[str] = 
             # Score is proportional to match rate
             skill_score = min(MAX_SKILL_SCORE, (match_count / total_keywords) * MAX_SKILL_SCORE)
             score += skill_score
-            feedback.append(f"JD Skill Match: {int(skill_score)}/{MAX_SKILL_SCORE} ({match_count}/{total_keywords} keywords matched)")
+            feedback.append(f"JD Skill Match: {int(skill_score)}/{MAX_SKILL_SCORE} \
+                ({match_count}/{total_keywords} keywords matched)")
             
             missing = list(jd_keywords - resume_skills_lower)
             if missing:
